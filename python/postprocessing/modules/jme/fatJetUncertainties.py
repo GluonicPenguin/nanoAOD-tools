@@ -244,111 +244,111 @@ class fatJetUncertaintiesProducer(Module):
     def beginFile(self, inputFile, outputFile, inputTree, wrappedOutputTree):
         self.out = wrappedOutputTree
         self.out.branch("%s_pt_raw" % self.jetBranchName,
-                        "F",
+                        "F", limitedPrecision=10,
                         lenVar=self.lenVar)
         self.out.branch("%s_pt_nom" % self.jetBranchName,
-                        "F",
+                        "F", limitedPrecision=10,
                         lenVar=self.lenVar)
         self.out.branch("%s_mass_raw" % self.jetBranchName,
-                        "F",
+                        "F", limitedPrecision=10,
                         lenVar=self.lenVar)
         self.out.branch("%s_mass_nom" % self.jetBranchName,
-                        "F",
+                        "F", limitedPrecision=10,
                         lenVar=self.lenVar)
         self.out.branch("%s_corr_JEC" % self.jetBranchName,
-                        "F",
+                        "F", limitedPrecision=10,
                         lenVar=self.lenVar)
         self.out.branch("%s_corr_JMR" % self.jetBranchName,
-                        "F",
+                        "F", limitedPrecision=10,
                         lenVar=self.lenVar)
         self.out.branch("%s_corr_JER" % self.jetBranchName,
-                        "F",
+                        "F", limitedPrecision=10,
                         lenVar=self.lenVar)
         self.out.branch("%s_corr_JMS" % self.jetBranchName,
-                        "F",
+                        "F", limitedPrecision=10,
                         lenVar=self.lenVar)
         
         if self.doGroomed:
             self.out.branch("%s_msoftdrop_raw" % self.jetBranchName,
-                            "F",
+                            "F", limitedPrecision=10,
                             lenVar=self.lenVar)
             self.out.branch("%s_msoftdrop_nom" % self.jetBranchName,
-                            "F",
+                            "F", limitedPrecision=10,
                             lenVar=self.lenVar)
             self.out.branch("%s_msoftdrop_corr_JMR" % self.jetBranchName,
-                            "F",
+                            "F", limitedPrecision=10,
                             lenVar=self.lenVar)
             self.out.branch("%s_msoftdrop_corr_JMS" % self.jetBranchName,
-                            "F",
+                            "F", limitedPrecision=10,
                             lenVar=self.lenVar)
             self.out.branch("%s_msoftdrop_corr_PUPPI" % self.jetBranchName,
-                            "F",
+                            "F", limitedPrecision=10,
                             lenVar=self.lenVar)
 
         if not self.isData:
             self.out.branch("%s_msoftdrop_tau21DDT_nom" % self.jetBranchName,
-                            "F",
+                            "F", limitedPrecision=10,
                             lenVar=self.lenVar)
             for shift in ["Up", "Down"]:
                 for jerID in self.splitJERIDs:
                     self.out.branch("%s_pt_jer%s%s" %
                                     (self.jetBranchName, jerID, shift),
-                                    "F",
+                                    "F", limitedPrecision=10,
                                     lenVar=self.lenVar)
                     self.out.branch("%s_mass_jer%s%s" %
                                     (self.jetBranchName, jerID, shift),
-                                    "F",
+                                    "F", limitedPrecision=10,
                                     lenVar=self.lenVar)
                 self.out.branch("%s_mass_jmr%s" % (self.jetBranchName, shift),
-                                "F",
+                                "F", limitedPrecision=10,
                                 lenVar=self.lenVar)
                 self.out.branch("%s_mass_jms%s" % (self.jetBranchName, shift),
-                                "F",
+                                "F", limitedPrecision=10,
                                 lenVar=self.lenVar)
 
                 if self.doGroomed:
                     for jerID in self.splitJERIDs:
                         self.out.branch("%s_msoftdrop_jer%s%s" %
                                         (self.jetBranchName, jerID, shift),
-                                        "F",
+                                        "F", limitedPrecision=10,
                                         lenVar=self.lenVar)
                         self.out.branch("%s_msoftdrop_tau21DDT_jer%s%s" %
                                         (self.jetBranchName, jerID, shift),
-                                        "F",
+                                        "F", limitedPrecision=10,
                                         lenVar=self.lenVar)
                     self.out.branch("%s_msoftdrop_jmr%s" %
                                     (self.jetBranchName, shift),
-                                    "F",
+                                    "F", limitedPrecision=10,
                                     lenVar=self.lenVar)
                     self.out.branch("%s_msoftdrop_jms%s" %
                                     (self.jetBranchName, shift),
-                                    "F",
+                                    "F", limitedPrecision=10,
                                     lenVar=self.lenVar)
                     self.out.branch("%s_msoftdrop_tau21DDT_jmr%s" %
                                     (self.jetBranchName, shift),
-                                    "F",
+                                    "F", limitedPrecision=10,
                                     lenVar=self.lenVar)
                     self.out.branch("%s_msoftdrop_tau21DDT_jms%s" %
                                     (self.jetBranchName, shift),
-                                    "F",
+                                    "F", limitedPrecision=10,
                                     lenVar=self.lenVar)
 
                 for jesUncertainty in self.jesUncertainties:
                     self.out.branch(
                         "%s_pt_jes%s%s" %
                         (self.jetBranchName, jesUncertainty, shift),
-                        "F",
+                        "F", limitedPrecision=10,
                         lenVar=self.lenVar)
                     self.out.branch(
                         "%s_mass_jes%s%s" %
                         (self.jetBranchName, jesUncertainty, shift),
-                        "F",
+                        "F", limitedPrecision=10,
                         lenVar=self.lenVar)
                     if self.doGroomed:
                         self.out.branch(
                             "%s_msoftdrop_jes%s%s" %
                             (self.jetBranchName, jesUncertainty, shift),
-                            "F",
+                            "F", limitedPrecision=10,
                             lenVar=self.lenVar)
 
     def endFile(self, inputFile, outputFile, inputTree, wrappedOutputTree):
